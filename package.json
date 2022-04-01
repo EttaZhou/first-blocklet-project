@@ -5,13 +5,15 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
     "lint": "eslint src --ext .mjs,.js,.vue",
-    "start": "npm run serve",
-    "clean": "rm -rf .blocklet",
-    "bundle": "npm run clean && PUBLIC_PATH=/.blocklet/proxy/z8ia3YgJtHgjaC32sKuB2a3HsyaY5YRD6YFKa npm run build && blocklet bundle --zip --create-release",
     "deploy": "npm run bundle && blocklet deploy .blocklet/bundle",
+    "bundle": "npm run clean && PUBLIC_PATH=/.blocklet/proxy/z8ia3YgJtHgjaC32sKuB2a3HsyaY5YRD6YFKa npm run build && blocklet bundle --zip --create-release",
+    "clean": "rm -rf .blocklet",
+    "prepare": "husky install",
+    "start": "npm run serve",
     "upload": "npm run bundle && blocklet upload .blocklet/release/blocklet.json",
-    "prepare": "husky install"
+    "test": "better-npm-run test"
   },
   "dependencies": {
     "core-js": "^3.21.1",
@@ -22,7 +24,9 @@
     "@babel/eslint-parser": "^7.17.0",
     "@vue/cli-plugin-babel": "~5.0.3",
     "@vue/cli-plugin-eslint": "~5.0.3",
+    "@vue/cli-plugin-unit-jest": "^4.0.0",
     "@vue/cli-service": "~5.0.3",
+    "@vue/test-utils": "^1.0.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
