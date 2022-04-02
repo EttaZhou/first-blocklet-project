@@ -1,14 +1,14 @@
 module.exports = {
-  preset: '@vue/cli-plugin-unit-jest',
-  moduleFileExtensions: ['js', 'vue'],
-  transform: {
-    '^.+\\.vue$': '<rootDir>/node_modules/vue-jest',
-    '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
-  },
+  verbose: true,
+  collectCoverage: true,
+  collectCoverageFrom: ['**/src/views/**', '!**/node_modules/**'],
+  moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
-  snapshotSerializers: ['jest-serializer-vue'],
-  testMatch: ['**/__tests__/**/*.spec.js'],
-  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  testMatch: ['**/tests/unit/**/*.spec.{j,t}s?(x)'],
+  transform: {
+    '.*\\.(vue)$': 'vue-jest',
+    '.*\\.(js)$': 'babel-jest',
+  },
 };
