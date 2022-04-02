@@ -11,6 +11,6 @@ npm run serve
 ### Project Test
 ```
 npm run test:unit
-
+```
 ### technology stack
 vue2.0 + Element ui + jest
